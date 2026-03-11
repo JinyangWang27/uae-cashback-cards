@@ -12,6 +12,13 @@ import mashreqData from './data/cards/mashreq-cashback.json'
 
 const CARDS: Card[] = [fabData, adcbData, enbdData, hsbcData, mashreqData] as Card[]
 
+const STALE_DAYS = 90
+const now = Date.now()
+const staleCards = CARDS.filter((c) => {
+  const ms = new Date(c.last_verified).getTime()
+  return Math.floor((now - ms) / 86_400_000) > STALE_DAYS
+})
+
 type Route =
   | { view: 'simulator' }
   | { view: 'compare' }
@@ -24,9 +31,9 @@ function parseHash(hash: string): Route {
     const cardId = h.slice('cards/'.length)
     return { view: 'card-detail', cardId }
   }
-  if (h === 'compare') return { view: 'compare' }
+  if (h === 'simulator') return { view: 'simulator' }
   if (h === 'cards') return { view: 'cards' }
-  return { view: 'simulator' }
+  return { view: 'compare' }
 }
 
 function navigate(hash: string) {
@@ -45,8 +52,8 @@ export default function App() {
   }, [])
 
   const navItems: { label: string; hash: string; view: string }[] = [
-    { label: 'Simulator', hash: '#simulator', view: 'simulator' },
     { label: 'Compare', hash: '#compare', view: 'compare' },
+    { label: 'Simulator', hash: '#simulator', view: 'simulator' },
     { label: 'Cards', hash: '#cards', view: 'cards' },
   ]
 
@@ -58,7 +65,7 @@ export default function App() {
       <header className="sticky top-0 z-50 border-b border-border bg-surface/90 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <button
-            onClick={() => navigate('#simulator')}
+            onClick={() => navigate('#compare')}
             className="font-serif text-xl text-gold tracking-tight hover:text-gold-light transition-colors"
           >
             UAE Cashback
@@ -120,6 +127,25 @@ export default function App() {
           )
         })()}
       </main>
+
+      {staleCards.length > 0 && (
+        <div className="border-t border-yellow-500/30 bg-yellow-500/5 py-2">
+          <div className="max-w-7xl mx-auto px-4">
+            <p className="text-xs text-yellow-400/80 text-center">
+              ⚠ Some card rates may be out of date (last verified &gt;90 days ago):{' '}
+              {staleCards.map((c) => c.name).join(', ')}.{' '}
+              <a
+                href="https://github.com"
+                className="underline hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contribute an update
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
 
       <footer className="border-t border-border mt-8 py-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">

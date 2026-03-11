@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jinyangwang27.github.io/uae-cashback-cards/sitemap.xml

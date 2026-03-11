@@ -1,0 +1,86 @@
+name: Check for Stale Card Rates
+
+on:
+  schedule:
+    # First day of each month at 08:00 UTC
+    - cron: '0 8 1 * *'
+  workflow_dispatch: {}
+
+jobs:
+  stale-check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Find stale cards
+        id: stale
+        run: |
+          STALE=$(npm run --silent validate-card -- --stale-only 2>/dev/null || \
+                  npx tsx scripts/check-stale-cards.ts)
+          if [ -z "$STALE" ]; then
+            echo "All cards are up to date."
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$STALE" > /tmp/stale_cards.txt
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "Stale cards:"
+            cat /tmp/stale_cards.txt
+          fi
+
+      - name: Open GitHub Issues for stale cards
+        if: steps.stale.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          while IFS='|' read -r id name last_verified days source_url; do
+            [ -z "$id" ] && continue
+            TITLE="Rates may be stale: $name"
+
+            # Check for an existing open issue
+            EXISTING=$(gh issue list \
+              --repo "$REPO" \
+              --label "stale-rates" \
+              --state open \
+              --json title \
+              --jq ".[] | select(.title == \"$TITLE\") | .title" 2>/dev/null || true)
+
+            if [ -n "$EXISTING" ]; then
+              echo "Issue already open for: $name — skipping"
+              continue
+            fi
+
+            BODY=$(cat <<EOF
+## Stale rate data detected
+
+**Card:** $name
+**Last verified:** $last_verified ($days days ago)
+
+Please visit the official card page and verify that all cashback rates, caps, and fees are still accurate:
+
+$source_url
+
+If the rates are unchanged, update \`last_verified\` to today's date and open a PR.
+If the rates have changed, update the affected fields in \`src/data/cards/$id.json\`.
+
+See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md) for instructions.
+EOF
+)
+            gh issue create \
+              --repo "$REPO" \
+              --title "$TITLE" \
+              --label "stale-rates" \
+              --body "$BODY"
+            echo "Opened issue: $TITLE"
+          done < /tmp/stale_cards.txt
