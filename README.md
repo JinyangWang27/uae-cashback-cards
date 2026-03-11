@@ -64,30 +64,25 @@ src/
 └── App.tsx                 # Hash-based routing (#simulator, #compare, #cards)
 ```
 
-## Adding a New Card
+## Contributing a Card
 
-1. Add a JSON file to `src/data/cards/` following the existing schema:
+Card data lives in `src/data/cards/` as JSON files validated against a [JSON Schema](src/data/cards/schema.json).
 
-```jsonc
-{
-  "id": "my-bank-card",
-  "name": "My Bank Cashback",
-  "issuer": "My Bank",
-  "network": "Visa",
-  "annual_fee_aed": 0,
-  "fee_waiver": null,         // or { "condition": "min_annual_spend_aed", "value": 12000 }
-  "fx_fee_rate": 0.0299,
-  "monthly_cashback_cap_aed": null,
-  "cashback_rules": [
-    { "category": "dining", "rate": 0.05, "monthly_cap_aed": 200, "min_monthly_spend_aed": 3000 },
-    { "category": "other",  "rate": 0.01, "monthly_cap_aed": null, "min_monthly_spend_aed": 3000 }
-  ]
-}
-```
+Quick steps:
 
-2. Import and add it to the `CARDS` array in `src/App.tsx`.
+1. Copy an existing card JSON as a template
+2. Fill in all fields, including `source_url` (the bank's official card page) and `last_verified` (today's date)
+3. Validate locally:
+   ```bash
+   npm run validate-card -- src/data/cards/your-card.json
+   ```
+4. Open a pull request — CI validates all changed card files automatically
 
-**Supported categories:** `dining`, `groceries`, `fuel`, `utilities`, `telecom`, `online`, `travel`, `government`, `other`
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the complete guide.
+
+### Staleness tracking
+
+Each card has a `last_verified` date. Cards not updated in 90+ days show a warning banner in the app, and a monthly CI job opens GitHub Issues requesting verification.
 
 ## Simulation Logic
 

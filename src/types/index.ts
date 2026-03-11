@@ -31,6 +31,8 @@ export interface Card {
   fx_fee_rate: number // e.g. 0.0299
   cashback_rules: CashbackRule[]
   monthly_cashback_cap_aed?: number | null
+  source_url: string   // official bank page for this card
+  last_verified: string // ISO date e.g. "2026-03-11"
   notes?: string
 }
 

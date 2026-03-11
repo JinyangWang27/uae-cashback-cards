@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UAE Cashback Card",
+  "description": "Schema for a UAE cashback credit card data file",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "issuer",
+    "network",
+    "annual_fee_aed",
+    "fx_fee_rate",
+    "cashback_rules",
+    "source_url",
+    "last_verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Kebab-case unique identifier matching the filename (without .json)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Full marketing name of the card"
+    },
+    "issuer": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Name of the issuing bank"
+    },
+    "network": {
+      "type": "string",
+      "enum": ["Visa", "Mastercard", "Amex"],
+      "description": "Card network"
+    },
+    "annual_fee_aed": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Annual fee in AED (inclusive of VAT where applicable)"
+    },
+    "fee_waiver": {
+      "description": "Condition under which the annual fee is waived",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["condition", "value"],
+          "additionalProperties": false,
+          "properties": {
+            "condition": {
+              "type": "string",
+              "enum": ["min_annual_spend_aed"]
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "fx_fee_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Foreign exchange fee as a decimal (e.g. 0.0299 for 2.99%)"
+    },
+    "monthly_cashback_cap_aed": {
+      "description": "Overall monthly cashback cap in AED across all categories",
+      "oneOf": [
+        { "type": "null" },
+        { "type": "number", "minimum": 0 }
+      ]
+    },
+    "cashback_rules": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of cashback rules, one per spend category",
+      "items": {
+        "type": "object",
+        "required": ["category", "rate"],
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "dining",
+              "groceries",
+              "fuel",
+              "utilities",
+              "telecom",
+              "online",
+              "travel",
+              "government",
+              "other"
+            ]
+          },
+          "rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Cashback rate as a decimal (e.g. 0.05 for 5%)"
+          },
+          "monthly_cap_aed": {
+            "description": "Per-category monthly cashback cap in AED",
+            "oneOf": [
+              { "type": "null" },
+              { "type": "number", "minimum": 0 }
+            ]
+          },
+          "min_monthly_spend_aed": {
+            "description": "Minimum total monthly spend required to earn this rate",
+            "oneOf": [
+              { "type": "null" },
+              { "type": "number", "minimum": 0 }
+            ]
+          }
+        }
+      }
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official bank page for this card (used for rate verification)"
+    },
+    "last_verified": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "ISO date when rates were last manually verified against source_url"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Human-readable summary of key terms"
+    }
+  }
+}

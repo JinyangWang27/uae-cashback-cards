@@ -12,6 +12,13 @@ import mashreqData from './data/cards/mashreq-cashback.json'
 
 const CARDS: Card[] = [fabData, adcbData, enbdData, hsbcData, mashreqData] as Card[]
 
+const STALE_DAYS = 90
+const now = Date.now()
+const staleCards = CARDS.filter((c) => {
+  const ms = new Date(c.last_verified).getTime()
+  return Math.floor((now - ms) / 86_400_000) > STALE_DAYS
+})
+
 type Route =
   | { view: 'simulator' }
   | { view: 'compare' }
@@ -120,6 +127,25 @@ export default function App() {
           )
         })()}
       </main>
+
+      {staleCards.length > 0 && (
+        <div className="border-t border-yellow-500/30 bg-yellow-500/5 py-2">
+          <div className="max-w-7xl mx-auto px-4">
+            <p className="text-xs text-yellow-400/80 text-center">
+              ⚠ Some card rates may be out of date (last verified &gt;90 days ago):{' '}
+              {staleCards.map((c) => c.name).join(', ')}.{' '}
+              <a
+                href="https://github.com"
+                className="underline hover:text-yellow-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contribute an update
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
 
       <footer className="border-t border-border mt-8 py-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">

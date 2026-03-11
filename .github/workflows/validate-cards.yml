@@ -1,0 +1,64 @@
+name: Validate Card Data
+
+on:
+  pull_request:
+    paths:
+      - 'src/data/cards/*.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Find changed card files
+        id: changed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          FILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- 'src/data/cards/*.json' | grep -v 'schema\.json' || true)
+          if [ -z "$FILES" ]; then
+            echo "No card JSON files changed."
+            echo "any=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changed card files:"
+            echo "$FILES"
+            echo "any=true" >> "$GITHUB_OUTPUT"
+            # Write list to a temp file to avoid injection via env/output
+            echo "$FILES" > /tmp/changed_cards.txt
+          fi
+
+      - name: Validate changed cards
+        if: steps.changed.outputs.any == 'true'
+        run: |
+          EXIT=0
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            echo "=== Validating $f ==="
+            npm run validate-card -- "$f" || EXIT=1
+          done < /tmp/changed_cards.txt
+          exit $EXIT
+
+      - name: AI rate verification (optional)
+        if: |
+          steps.changed.outputs.any == 'true' &&
+          env.ANTHROPIC_API_KEY != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "AI verification — not yet implemented."
+          # Future: for each changed card, fetch source_url, send page text
+          # + card JSON to Claude API, and flag rate inconsistencies.
