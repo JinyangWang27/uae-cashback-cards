@@ -31,9 +31,9 @@ function parseHash(hash: string): Route {
     const cardId = h.slice('cards/'.length)
     return { view: 'card-detail', cardId }
   }
-  if (h === 'compare') return { view: 'compare' }
+  if (h === 'simulator') return { view: 'simulator' }
   if (h === 'cards') return { view: 'cards' }
-  return { view: 'simulator' }
+  return { view: 'compare' }
 }
 
 function navigate(hash: string) {
@@ -52,8 +52,8 @@ export default function App() {
   }, [])
 
   const navItems: { label: string; hash: string; view: string }[] = [
-    { label: 'Simulator', hash: '#simulator', view: 'simulator' },
     { label: 'Compare', hash: '#compare', view: 'compare' },
+    { label: 'Simulator', hash: '#simulator', view: 'simulator' },
     { label: 'Cards', hash: '#cards', view: 'cards' },
   ]
 
@@ -65,7 +65,7 @@ export default function App() {
       <header className="sticky top-0 z-50 border-b border-border bg-surface/90 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <button
-            onClick={() => navigate('#simulator')}
+            onClick={() => navigate('#compare')}
             className="font-serif text-xl text-gold tracking-tight hover:text-gold-light transition-colors"
           >
             UAE Cashback
