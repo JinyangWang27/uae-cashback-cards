@@ -1,0 +1,49 @@
+{
+  "id": "mashreq-cashback",
+  "name": "Mashreq Cashback",
+  "issuer": "Mashreq Bank",
+  "network": "Mastercard",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "online",
+      "rate": 0.05,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "government",
+      "rate": 0.0033,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.0033,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.0033,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "telecom",
+      "rate": 0.0033,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "notes": "No annual fee, no minimum spend. 5% on online shopping (noon/Namshi). 0.33% on government, utilities, fuel, telecom. 1% on all other spend."
+}

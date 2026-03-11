@@ -1,0 +1,43 @@
+{
+  "id": "fab-cashback",
+  "name": "FAB Cashback Platinum",
+  "issuer": "First Abu Dhabi Bank",
+  "network": "Visa",
+  "annual_fee_aed": 315,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": 1000,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "groceries",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "online",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "travel",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 3000
+    }
+  ],
+  "notes": "Min monthly spend AED 3,000 required to earn cashback. 5% on dining, groceries, online (fashion) capped AED 200/mo each. 3% on international travel. 1% on other."
+}

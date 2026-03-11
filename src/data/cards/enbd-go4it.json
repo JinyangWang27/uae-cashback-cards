@@ -1,0 +1,31 @@
+{
+  "id": "enbd-go4it",
+  "name": "Emirates NBD GO4IT",
+  "issuer": "Emirates NBD",
+  "network": "Visa",
+  "annual_fee_aed": 525,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "groceries",
+      "rate": 0.08,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.08,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.008,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "notes": "8% on groceries (Carrefour partner) and fuel (ENOC partner). 0.8% on all other spend. Annual fee waived in year 1."
+}

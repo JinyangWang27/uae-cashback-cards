@@ -1,0 +1,49 @@
+{
+  "id": "adcb-365",
+  "name": "ADCB 365 Cashback",
+  "issuer": "ADCB",
+  "network": "Visa",
+  "annual_fee_aed": 384,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": 1000,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.06,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    },
+    {
+      "category": "groceries",
+      "rate": 0.05,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    },
+    {
+      "category": "fuel",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    },
+    {
+      "category": "utilities",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    },
+    {
+      "category": "telecom",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 5000
+    }
+  ],
+  "notes": "Min monthly spend AED 5,000 required to earn any cashback. Annual fee AED 365 + VAT = AED 384. Free in year 1."
+}
