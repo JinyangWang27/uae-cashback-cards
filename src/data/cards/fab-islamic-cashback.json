@@ -1,0 +1,45 @@
+{
+  "id": "fab-islamic-cashback",
+  "name": "FAB Islamic Cashback Platinum",
+  "issuer": "First Abu Dhabi Bank",
+  "network": "Mastercard",
+  "annual_fee_aed": 315,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": 1000,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "groceries",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "online",
+      "rate": 0.05,
+      "monthly_cap_aed": 200,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "travel",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 3000
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": 3000
+    }
+  ],
+  "source_url": "https://www.bankfab.com/en-ae/personal/cards/credit-cards/islamic-cashback-credit-card",
+  "last_verified": "2026-03-23",
+  "notes": "Sharia-compliant variant of FAB Cashback Platinum. Min monthly spend AED 3,000 required. 5% on dining, groceries, online (capped AED 200/mo each). 3% on travel. 1% on other."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "enbd-flex",
+  "name": "Emirates NBD Flex Credit Card",
+  "issuer": "Emirates NBD",
+  "network": "Mastercard",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "groceries",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "dining",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "online",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.emiratesnbd.com/en/cards/credit-cards/flex-credit-card/",
+  "last_verified": "2026-03-23",
+  "notes": "No annual fee, no minimum spend. 3% on groceries, 2% on dining and online shopping, 1% on all other spend."
+}
