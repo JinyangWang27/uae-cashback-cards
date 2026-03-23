@@ -1,0 +1,39 @@
+{
+  "id": "rakbank-titanium",
+  "name": "RAKBank Titanium Credit Card",
+  "issuer": "RAKBank",
+  "network": "Mastercard",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.03,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "groceries",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.rakbank.ae/wps/portal/retail-banking/cards/credit-cards/titanium-credit-card",
+  "last_verified": "2026-03-23",
+  "notes": "No annual fee, no minimum spend. 3% on dining, 2% on groceries and fuel, 1% on all other purchases."
+}

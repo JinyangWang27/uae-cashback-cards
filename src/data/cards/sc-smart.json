@@ -1,0 +1,27 @@
+{
+  "id": "sc-smart",
+  "name": "Standard Chartered Smart Credit Card",
+  "issuer": "Standard Chartered UAE",
+  "network": "Mastercard",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "online",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.sc.com/ae/credit-cards/smart/",
+  "last_verified": "2026-03-23",
+  "notes": "No annual fee, no minimum spend. 2% cashback on all online transactions. 1% on all other spend."
+}
