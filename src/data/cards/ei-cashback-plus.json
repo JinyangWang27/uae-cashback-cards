@@ -1,0 +1,45 @@
+{
+  "id": "ei-cashback-plus",
+  "name": "Emirates Islamic Cashback Plus",
+  "issuer": "Emirates Islamic",
+  "network": "Visa",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.1,
+      "monthly_cap_aed": 100,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "groceries",
+      "rate": 0.1,
+      "monthly_cap_aed": 100,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.05,
+      "monthly_cap_aed": 50,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "utilities",
+      "rate": 0.02,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.emiratesislamic.ae/en/personal/cards/credit-cards/cashback-plus-credit-card/",
+  "last_verified": "2026-03-23",
+  "notes": "No annual fee, no minimum spend. Sharia-compliant card. 10% on dining and groceries (capped AED 100/mo each). 5% on fuel (capped AED 50/mo). 2% on utilities. 1% on other spend."
+}

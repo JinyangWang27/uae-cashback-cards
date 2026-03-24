@@ -1,0 +1,39 @@
+{
+  "id": "cbd-simply-cashback",
+  "name": "CBD Simply Cashback Credit Card",
+  "issuer": "Commercial Bank of Dubai",
+  "network": "Mastercard",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.1,
+      "monthly_cap_aed": 100,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "groceries",
+      "rate": 0.05,
+      "monthly_cap_aed": 75,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.05,
+      "monthly_cap_aed": 50,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.cbd.ae/personal/cards/credit-cards/simply-cashback-credit-card",
+  "last_verified": "2026-03-23",
+  "notes": "No annual fee, no minimum spend. 10% on dining (capped AED 100/mo), 5% on groceries (capped AED 75/mo), 5% on fuel (capped AED 50/mo), 1% on all other spend."
+}
