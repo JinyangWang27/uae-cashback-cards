@@ -1,0 +1,42 @@
+{
+  "id": "rakbank-red",
+  "name": "RAKBank Red Mastercard",
+  "issuer": "RAKBank",
+  "network": "Mastercard",
+  "annual_fee_aed": 500,
+  "fee_waiver": {
+    "condition": "min_annual_spend_aed",
+    "value": 60000
+  },
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "dining",
+      "rate": 0.05,
+      "monthly_cap_aed": 150,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "groceries",
+      "rate": 0.03,
+      "monthly_cap_aed": 150,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "fuel",
+      "rate": 0.03,
+      "monthly_cap_aed": 100,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.rakbank.ae/personal/cards/credit-cards/red-mastercard",
+  "last_verified": "2026-03-29",
+  "notes": "Annual fee AED 500, waived with min annual spend AED 60,000. 5% on dining (capped AED 150/mo), 3% on groceries (capped AED 150/mo), 3% on fuel (capped AED 100/mo), 1% on all other spend."
+}

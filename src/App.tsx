@@ -9,8 +9,34 @@ import adcbData from './data/cards/adcb-365.json'
 import enbdData from './data/cards/enbd-go4it.json'
 import hsbcData from './data/cards/hsbc-live-plus.json'
 import mashreqData from './data/cards/mashreq-cashback.json'
+import enbdFlexData from './data/cards/enbd-flex.json'
+import fabIslamicData from './data/cards/fab-islamic-cashback.json'
+import rakbankTitaniumData from './data/cards/rakbank-titanium.json'
+import scSmartData from './data/cards/sc-smart.json'
+import dibData from './data/cards/dib-cashback.json'
+import cbdData from './data/cards/cbd-simply-cashback.json'
+import adibData from './data/cards/adib-cashback-visa.json'
+import eiData from './data/cards/ei-cashback-plus.json'
+import citibankData from './data/cards/citibank-cashback.json'
+import rakbankRedData from './data/cards/rakbank-red.json'
 
-const CARDS: Card[] = [fabData, adcbData, enbdData, hsbcData, mashreqData] as Card[]
+const CARDS: Card[] = [
+  fabData,
+  adcbData,
+  enbdData,
+  hsbcData,
+  mashreqData,
+  enbdFlexData,
+  fabIslamicData,
+  rakbankTitaniumData,
+  scSmartData,
+  dibData,
+  cbdData,
+  adibData,
+  eiData,
+  citibankData,
+  rakbankRedData,
+] as Card[]
 
 const STALE_DAYS = 90
 const now = Date.now()
