@@ -161,7 +161,7 @@ export default function App() {
               ⚠ Some card rates may be out of date (last verified &gt;90 days ago):{' '}
               {staleCards.map((c) => c.name).join(', ')}.{' '}
               <a
-                href="https://github.com"
+                href="https://github.com/jinyangwang27/uae-cashback-cards"
                 className="underline hover:text-yellow-300"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -176,7 +176,15 @@ export default function App() {
       <footer className="border-t border-border mt-8 py-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted">
-            UAE Cashback Comparator — for informational purposes only. Verify rates with issuers.
+            UAE Cashback Comparator — for informational purposes only. Verify rates with issuers.{' '}
+            <a
+              href="https://github.com/jinyangwang27/uae-cashback-cards"
+              className="underline hover:text-warm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
           </p>
           <p className="text-xs text-muted font-mono">
             Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
