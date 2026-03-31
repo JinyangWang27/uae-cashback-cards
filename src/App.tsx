@@ -178,7 +178,9 @@ export default function App() {
           <p className="text-xs text-muted">
             UAE Cashback Comparator — for informational purposes only. Verify rates with issuers.
           </p>
-          <p className="text-xs text-muted font-mono">March 2026</p>
+          <p className="text-xs text-muted font-mono">
+            Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </p>
         </div>
       </footer>
     </div>
