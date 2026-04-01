@@ -9,6 +9,10 @@ const CATEGORIES: Category[] = [
   'online',
   'travel',
   'government',
+  'lulu',
+  'al-futtaim',
+  'tax-free-stores',
+  'costa-coffee',
   'other',
 ]
 

@@ -19,6 +19,9 @@ import adibData from './data/cards/adib-cashback-visa.json'
 import eiData from './data/cards/ei-cashback-plus.json'
 import citibankData from './data/cards/citibank-cashback.json'
 import rakbankRedData from './data/cards/rakbank-red.json'
+import adcbLuluData from './data/cards/adcb-lulu.json'
+import enbdDnataWorldData from './data/cards/enbd-dnata-world.json'
+import fabIslamicBlueData from './data/cards/fab-islamic-blue.json'
 
 const CARDS: Card[] = [
   fabData,
@@ -36,6 +39,9 @@ const CARDS: Card[] = [
   eiData,
   citibankData,
   rakbankRedData,
+  adcbLuluData,
+  enbdDnataWorldData,
+  fabIslamicBlueData,
 ] as Card[]
 
 const STALE_DAYS = 90

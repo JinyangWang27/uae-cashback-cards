@@ -7,6 +7,10 @@ export type Category =
   | 'online'
   | 'travel'
   | 'government'
+  | 'lulu'
+  | 'al-futtaim'
+  | 'tax-free-stores'
+  | 'costa-coffee'
   | 'other'
 
 export interface CashbackRule {
@@ -14,6 +18,7 @@ export interface CashbackRule {
   rate: number // e.g. 0.05 for 5%
   monthly_cap_aed?: number | null
   min_monthly_spend_aed?: number | null // card-level min spend to activate
+  merchants?: string[] // specific brand/merchant names that qualify (display only)
 }
 
 export interface FeeWaiver {

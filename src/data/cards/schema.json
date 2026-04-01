@@ -95,6 +95,10 @@
               "online",
               "travel",
               "government",
+              "lulu",
+              "al-futtaim",
+              "tax-free-stores",
+              "costa-coffee",
               "other"
             ]
           },
@@ -117,6 +121,11 @@
               { "type": "null" },
               { "type": "number", "minimum": 0 }
             ]
+          },
+          "merchants": {
+            "description": "Specific merchant or brand names that qualify for this rate (display only)",
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
           }
         }
       }

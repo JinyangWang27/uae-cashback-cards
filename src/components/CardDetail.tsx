@@ -16,6 +16,10 @@ const CAT_LABELS: Record<string, string> = {
   online: 'Online Shopping',
   travel: 'Travel (International)',
   government: 'Government Services',
+  lulu: 'Lulu Hypermarket',
+  'al-futtaim': 'Al Futtaim Group',
+  'tax-free-stores': 'Airport Tax-Free Stores',
+  'costa-coffee': 'Costa Coffee',
   other: 'Everything Else',
 }
 
@@ -125,7 +129,10 @@ export function CardDetail({ card, onBack, onSimulate }: Props) {
               {card.cashback_rules.map((rule) => (
                 <tr key={rule.category} className="border-b border-border/30 hover:bg-base/50 transition-colors">
                   <td className="px-5 py-3 text-warm text-xs">
-                    {CAT_LABELS[rule.category] ?? rule.category}
+                    <div>{CAT_LABELS[rule.category] ?? rule.category}</div>
+                    {rule.merchants && rule.merchants.length > 0 && (
+                      <div className="text-muted mt-0.5">{rule.merchants.join(', ')}</div>
+                    )}
                   </td>
                   <td className="px-5 py-3 text-right">
                     <span className={`font-mono text-xs font-medium ${rule.rate >= 0.05 ? 'text-gold' : rule.rate >= 0.02 ? 'text-emerald' : 'text-muted'}`}>

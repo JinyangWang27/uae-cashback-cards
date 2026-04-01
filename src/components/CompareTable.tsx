@@ -18,6 +18,10 @@ const CASHBACK_CATEGORIES: Category[] = [
   'online',
   'travel',
   'government',
+  'lulu',
+  'al-futtaim',
+  'tax-free-stores',
+  'costa-coffee',
   'other',
 ]
 
@@ -30,6 +34,10 @@ const CAT_LABELS: Record<Category, string> = {
   online: 'Online',
   travel: 'Travel',
   government: 'Govt',
+  lulu: 'Lulu',
+  'al-futtaim': 'Al Futtaim',
+  'tax-free-stores': 'Tax-Free',
+  'costa-coffee': 'Costa',
   other: 'Other',
 }
 

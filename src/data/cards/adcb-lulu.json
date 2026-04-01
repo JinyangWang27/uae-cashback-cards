@@ -1,0 +1,28 @@
+{
+  "id": "adcb-lulu",
+  "name": "ADCB Lulu Credit Card",
+  "issuer": "ADCB",
+  "network": "Visa",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "lulu",
+      "rate": 0.08,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null,
+      "merchants": ["Lulu Hypermarket", "Lulu Express"]
+    },
+    {
+      "category": "other",
+      "rate": 0.005,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.adcb.com/en/personal/cards/credit-cards/lulu-credit-card/",
+  "last_verified": "2026-04-01",
+  "notes": "Co-branded card with Lulu. 8% cashback at all Lulu Hypermarket and Lulu Express locations. 0.5% on all other spend."
+}

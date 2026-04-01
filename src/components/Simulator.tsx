@@ -15,6 +15,10 @@ const CATEGORY_LABELS: Record<Category, string> = {
   online: 'Online Shopping',
   travel: 'Travel (International)',
   government: 'Government Services',
+  lulu: 'Lulu Hypermarket',
+  'al-futtaim': 'Al Futtaim (M&S, IKEA, ACE…)',
+  'tax-free-stores': 'Airport Tax-Free Stores',
+  'costa-coffee': 'Costa Coffee',
   other: 'Everything Else',
 }
 
@@ -27,6 +31,10 @@ const CATEGORY_ICONS: Record<Category, string> = {
   online: '🛍',
   travel: '✈',
   government: '🏛',
+  lulu: '🏪',
+  'al-futtaim': '🛍',
+  'tax-free-stores': '🛫',
+  'costa-coffee': '☕',
   other: '💳',
 }
 
@@ -39,6 +47,10 @@ const DEFAULT_SPEND: SpendMap = {
   online: 800,
   travel: 0,
   government: 0,
+  lulu: 0,
+  'al-futtaim': 0,
+  'tax-free-stores': 0,
+  'costa-coffee': 0,
   other: 500,
 }
 
@@ -51,6 +63,10 @@ const MAX_SPEND: Record<Category, number> = {
   online: 10000,
   travel: 20000,
   government: 5000,
+  lulu: 10000,
+  'al-futtaim': 5000,
+  'tax-free-stores': 5000,
+  'costa-coffee': 2000,
   other: 10000,
 }
 

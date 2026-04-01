@@ -1,0 +1,28 @@
+{
+  "id": "fab-islamic-blue",
+  "name": "FAB Islamic Blue",
+  "issuer": "First Abu Dhabi Bank",
+  "network": "Visa",
+  "annual_fee_aed": 0,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0299,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "al-futtaim",
+      "rate": 0.10,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null,
+      "merchants": ["M&S", "IKEA", "ACE", "Pottery Barn", "Williams-Sonoma", "Marks & Spencer"]
+    },
+    {
+      "category": "other",
+      "rate": 0.005,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.bankfab.com/en-ae/personal/cards/credit-cards/islamic-blue-card",
+  "last_verified": "2026-04-01",
+  "notes": "Shariah-compliant card. 10% cashback at Al Futtaim retail brands (M&S, IKEA, ACE, Pottery Barn, Williams-Sonoma). 0.5% on all other spend."
+}

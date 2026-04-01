@@ -1,0 +1,41 @@
+{
+  "id": "enbd-dnata-world",
+  "name": "Emirates NBD Dnata World",
+  "issuer": "Emirates NBD",
+  "network": "Mastercard",
+  "annual_fee_aed": 800,
+  "fee_waiver": null,
+  "fx_fee_rate": 0.0,
+  "monthly_cashback_cap_aed": null,
+  "cashback_rules": [
+    {
+      "category": "tax-free-stores",
+      "rate": 0.10,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null,
+      "merchants": ["Dubai Duty Free", "DFS", "Dufry", "Lagardere Travel Retail"]
+    },
+    {
+      "category": "costa-coffee",
+      "rate": 0.10,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null,
+      "merchants": ["Costa Coffee"]
+    },
+    {
+      "category": "travel",
+      "rate": 0.05,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    },
+    {
+      "category": "other",
+      "rate": 0.01,
+      "monthly_cap_aed": null,
+      "min_monthly_spend_aed": null
+    }
+  ],
+  "source_url": "https://www.emiratesnbd.com/en/cards/credit-cards/dnata-world-credit-card/",
+  "last_verified": "2026-04-01",
+  "notes": "Travel co-brand with dnata. 10% at airport tax-free stores and Costa Coffee. 5% on travel. 1% on all other spend. No FX fee."
+}
