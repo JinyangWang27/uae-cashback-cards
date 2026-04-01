@@ -61,26 +61,25 @@ jobs:
               continue
             fi
 
-            BODY=$(cat <<EOF
-## Stale rate data detected
-
-**Card:** $name
-**Last verified:** $last_verified ($days days ago)
-
-Please visit the official card page and verify that all cashback rates, caps, and fees are still accurate:
-
-$source_url
-
-If the rates are unchanged, update \`last_verified\` to today's date and open a PR.
-If the rates have changed, update the affected fields in \`src/data/cards/$id.json\`.
-
-See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md) for instructions.
-EOF
-)
+            {
+              echo "## Stale rate data detected"
+              echo ""
+              echo "**Card:** $name"
+              echo "**Last verified:** $last_verified ($days days ago)"
+              echo ""
+              echo "Please visit the official card page and verify that all cashback rates, caps, and fees are still accurate:"
+              echo ""
+              echo "$source_url"
+              echo ""
+              echo "If the rates are unchanged, update \`last_verified\` to today's date and open a PR."
+              echo "If the rates have changed, update the affected fields in \`src/data/cards/$id.json\`."
+              echo ""
+              echo "See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md) for instructions."
+            } > /tmp/issue_body.md
             gh issue create \
               --repo "$REPO" \
               --title "$TITLE" \
               --label "stale-rates" \
-              --body "$BODY"
+              --body-file /tmp/issue_body.md
             echo "Opened issue: $TITLE"
           done < /tmp/stale_cards.txt
